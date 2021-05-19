@@ -1,3 +1,4 @@
 Name,Family,Course,confirmation
-f,g,math,False
-f,g,english,True
+f,m,math,False
+f,m,english,False
+f,m,magnetic,False

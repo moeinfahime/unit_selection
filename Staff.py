@@ -31,15 +31,15 @@ class Staff:
         with open('info_select_course.csv', 'r') as read:
             reader = csv.DictReader(read)
 
-            for line in reader:
-                for row in reader:
-                    if row['Name'] == name_student and row['Family'] == family_student:
-                        print(row['Name'], row['Family'], row['Course'], row['confirmation'])
 
-                    else:
-                        from colorama import Fore, Back, Style
-                        print(Fore.LIGHTBLUE_EX + '"' + "The name of this student does not exist." + '"')
-                        print(Style.RESET_ALL)
+            for row in reader:
+                if row['Name'] == name_student and row['Family'] == family_student:
+                    print(row['Name'], row['Family'], row['Course'], row['confirmation'])
+
+                else:
+                    from colorama import Fore, Back, Style
+                    print(Fore.LIGHTBLUE_EX + '"' + "The name of this student does not exist." + '"')
+                    print(Style.RESET_ALL)
 
     @staticmethod
     def course_enroll(name_student, family_student, course, confirmation):
@@ -52,7 +52,6 @@ class Staff:
             for row in csv_reader:
                 if row['Name'] == name_student and row['Family'] == family_student and row['Course'] == course:
                     row['confirmation'] = confirmation
-
                     change.loc[location, 'confirmation'] = confirmation
                     change.to_csv('info_select_course.csv', index=False)
                 location += 1
@@ -69,4 +68,3 @@ class Staff:
 # english,as,23,3,30
 # magnetic,d,32,6,25
 
-# Staff_Education.course_define()
